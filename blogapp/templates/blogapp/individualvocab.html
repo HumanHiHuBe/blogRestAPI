@@ -1,0 +1,24 @@
+{% extends 'blogapp/base.html' %}
+{% load static %}
+{% block title %} BlogForVocab {% endblock %}
+
+{% block content %}
+<script type="xml">
+  {{ def }}
+</script>
+<div class="detailedVocab">
+  <div class="tDiv">Detailed explaination of the word</div>
+  {% if res %}
+  <div class="lD"></div>
+  <div class="rLd">
+    {{ res|safe }}
+  </div>
+  {% else %}
+  <div class="rLd">
+    No definition available for the searched word - {{ word }}.
+  </div>
+  {% endif %}
+
+</div>
+</xml>
+{% endblock %}

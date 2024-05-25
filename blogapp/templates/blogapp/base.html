@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Blog Technology Hindi vocabulary Entertainment News Trending">
+    <meta name="description" content="Enhance your Vocabulary">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Base {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'blogapp/home.css' %}">
+    <link rel="shortcut icon" href="{% static 'blogapp/imgs/fav.svg' %}" type="image/x-icon">
+</head>
+<body>
+    <div class="bodyDiv">
+        <div class="navDiv">
+            <nav>
+                <div class="navb">
+                        <div class="fir"><a href="{% url 'bloghome' %}" class="fir">Blog For Vocab</a></div>
+                        {% if user.is_authenticated %}
+                        <div class="seco"><form action="{% url 'logoutuser' %}" method="POST" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" id="logoutbtn">Logout</button>
+                        </form></div>
+                        <div class="thir">{% block writeblogurl %} <a href="{% url 'writeblog' %}" class="thir">Write Blog</a> {% endblock %}</div>
+                        {% else %}
+                        <div class="seco">{% block login %}<a href="{% url 'loginuser' %}" class="seco">Login</a>{% endblock %}</div>
+                        <div class="thir">{% block signup %}<a href="{% url 'signupuser' %}" class="thir">Sign Up</a>{% endblock %}</div>
+                        {% endif %}
+                </div>
+            </nav>
+        </div>
+
+
+        <div class="content">
+            {% block content %} {% endblock %}
+        </div>
+
+        <div class="footerDiv">
+            <footer>
+                <div id="footer">
+                    <div id="fl">
+                        Developed with ❤️ In <span class="bolder"> India </span>  by <span class="bolder"> • Pranav Vatsa </span>  <br>
+                    </div>
+                    <div class="sicon">
+                        <div class="g"><a href="https://github.com/HumanHiHuBe/blog" target="_blank"><img src="{% static 'blogapp/imgs/github.svg' %}" alt="Github Icon For this Link"></a></div>
+                        <div class="l"><a href="https://www.linkedin.com/in/humanhu/" target="_blank"><img src="{% static 'blogapp/imgs/linkedin.png' %}" alt="LinkedIn Icon For LinkedIn Profile Link"></a></div>
+                    </div>
+                    <div id="sl">
+                        <span class="bolder"> © BlogForVocab </span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <script src="{% static 'blogapp/home.js' %}" ></script>
+    
+</body>
+</html>

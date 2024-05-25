@@ -1,0 +1,708 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+/* Complete Body Layout */
+.bodyDiv{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Footer */
+.footerDiv{
+    height: 45vh;
+    background-color: grey;
+}
+#footer{
+    margin-top: 19vh;
+    color: white;
+    font-size: 2vw;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@media screen and (max-width : 500px) {
+    .footerDiv{
+        height: 30vh;
+        background-color: grey;
+    }
+    #footer{
+        margin-top: 14vh;
+        color: white;
+        font-size: 2.5vw;
+        background-color: grey;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.bolder{
+    font-size: larger;
+    font-weight: bolder;
+}
+#fl{
+    text-align: center;
+}
+.sicon{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.sicon div img{
+    width: 2em;
+    height: 2em;
+}
+.g{
+    margin-right: 1em;
+}
+#sl{
+    text-align: center;
+}
+
+/* Nav */
+.navb{
+    display: flex;
+    width: 80vw;
+    margin-left: 10vw;
+    font-size: 1.2rem;
+}
+
+.navb div a{
+    text-decoration: none;
+    color: purple
+}
+
+#logoutbtn{
+    border: none;
+    background-color: transparent;
+    color: purple;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.fir{
+    align-content: start;
+}
+.seco{
+    margin-left: auto;
+    margin-right: 1vw;  
+}
+/* For Mobile */
+@media screen and (max-width : 500px) {
+    .navb{
+        display: flex;
+        width: 98vw;
+        margin-left: 1vw;
+        font-size: 1.2rem;
+        flex-wrap: nowrap;
+    }
+    
+    .navb div a{
+        text-decoration: none;
+    }
+    .fir{
+        align-content: start;
+    }
+    .seco{
+        margin-left: auto;
+        margin-right: 1vw;  
+    }
+}
+
+/* Content Div */
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 50vh;
+    margin-top: 10vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+@media screen and (max-width : 500px) {
+    .content{
+        margin-left: 2vh;
+    }
+}
+
+/* Bloghome */
+.bloglist .indBlog a{
+    text-decoration: none;
+    color: coral;
+    font-size: 1.8rem;
+    background: linear-gradient(93.51deg, rgb(124, 71, 235) 10.94%, rgb(233, 53, 161) 86.95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: white;
+    -webkit-text-fill-color: transparent;
+}
+
+.bloglist{
+    display: flex;
+    flex-direction: column;
+}
+
+.bloglist .indBlog{
+    border: 2px dashed purple;
+    padding-left: 45%;
+    margin: 2vh;
+    white-space: nowrap;
+    object-fit: contain;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+@media screen and (max-width : 500px) {
+    .bloglist .indBlog{
+        border: 2px dashed purple;
+        padding-left: 19vw;
+        margin: 1vh;
+        cursor: pointer;
+        white-space: nowrap;
+        object-fit: contain;
+    }
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    font-size: 1.6rem;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+.pagination a{
+    text-decoration: none;
+    color: purple;
+}
+.current{
+    color: bl;
+}
+
+@media screen and (max-width : 500px) {
+    .pagination{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5vh;
+        font-size: 1rem;
+        font-weight: bolder;
+        margin-left: -2vh;
+        margin-right: 0;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+        text-decoration: none;
+    }
+    .pagination a{
+        text-decoration: none;
+        color: purple;
+    }
+}
+
+/* BlogList */
+.wrrapernoofbloginfo{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.noofbloginfo{
+    justify-self: center;
+    text-align: center;
+    font-size: 1.7rem;
+    margin-top: -5vh;
+    height: 8vh;
+    margin-bottom: 2vh;
+    font-size: 1.8rem;
+    width: fit-content;
+    background: linear-gradient(93.51deg, rgb(124, 71, 235) 10.94%, rgb(233, 53, 161) 86.95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bloglists{
+    width: 90vw;
+}
+
+.indbloglists{
+    border-top: 2px dashed purple;
+    padding-top: 3vh;
+    padding-bottom: 1rem;
+}
+
+.shortdesc{
+    width: fit-content;
+    border-bottom: 1px dashed purple;
+    font-size: 1.1rem;
+}
+
+.indbloglists form button{
+    border: none;
+    background-color: white;
+    font-size: 1.6rem;
+    color: purple;
+    cursor: pointer;
+}
+
+#formLogin > p> input{
+    border: none;
+    border-bottom: 1px solid purple;
+    padding: 5px;
+    margin-bottom: 10px;
+    /* width: max-content; */
+}
+
+#formLogin > button{
+    border: 1px solid purple;
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: larger;
+    font-weight: bolder;
+    background: linear-gradient(93.51deg, rgb(124, 71, 235) 10.94%, rgb(233, 53, 161) 86.95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}
+
+#formLogin > button:hover{
+    box-shadow: 0 5px 15px rgba(130, 39, 122, 0.4);
+}
+
+
+#formLogin > p> input:focus{
+    outline: none;
+}
+
+#formLogin > p > label{
+    display: none;
+}
+
+#formLogin > p > span{
+    display: none;
+}
+
+#formLogin > ul{
+    display: none;
+}
+
+#lastDivInp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 0.5 0.5 auto;
+}
+
+#formDiv{
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* border: 5px solid black;    */
+}
+
+#formInnerDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px dashed purple;
+    flex: 0.9 auto;
+    width: 100%;
+}
+
+
+/* Last page (detailed Blog page) */
+/* For laptop */
+
+.right{
+    border-top: 2px solid purple;
+    margin-top: 10%;
+    padding: 5%;
+    width: 100%;
+}
+
+@media screen and (min-width : 500px) {
+    #dBlogWr{
+        min-height: 50vh;
+        border: 3px dashed purple;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex: 1,1, auto;
+        text-decoration: none;
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        
+    }
+    
+    .left{
+        margin: 5px;
+        flex: 0.7 auto;
+        width: 70%;
+        padding: 10px;
+    }
+
+    .left button{
+        cursor: pointer;
+    }
+    
+    
+    .right{
+        border-left: 2px dashed purple;
+        margin: 5px;
+        flex: 0.3 auto;
+        width: 30%;
+        padding: 10px;
+        text-decoration: none;
+        border-top: none;
+    }
+
+    .right a{
+        text-decoration: none;
+    }
+
+    /* Bloghome */
+    .bloglist .indBlog a{
+        text-decoration: none;
+        color: coral;
+        font-size: 1.8rem;
+        background: linear-gradient(93.51deg, rgb(124, 71, 235) 10.94%, rgb(233, 53, 161) 86.95%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: white;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .bloglist{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bloglist .indBlog{
+        border: 2px dashed purple;
+        padding-left: 45%;
+        margin: 2vh;
+        white-space: nowrap;
+        object-fit: contain;
+    }
+
+}
+
+.tDiv{
+    flex: 1,1 auto;
+    text-align: center;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.iDiv{
+    flex: 1,1 auto;
+    text-align: left;
+    font-weight: lighter;
+    font-size: small;
+}
+
+.dbContent{
+    flex: 1,1 auto;
+    text-align: justify;
+}
+
+.lncDiv{
+    border-bottom: 2px dashed purple;
+    margin-bottom: 10px;
+}
+
+#formLike > button{
+    border: 1px solid purple;
+    width: max-content;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: large;
+    font-weight: bold;
+    background: linear-gradient(93.51deg, rgb(124, 71, 235) 10.94%, rgb(233, 53, 161) 86.95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}
+
+#formLike > button:hover{
+    box-shadow: 0 5px 15px rgba(130, 39, 122, 0.4);
+}
+
+#likedUserDiv{
+    flex: 1,1, auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cDiv{
+    flex: 1,1 auto;
+    text-align: center;
+    font-weight: 400;
+    font-size: larger;
+    margin: 2%;
+}
+
+.commForm > button{
+    border: 1px solid purple;
+    width: max-content;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: large;
+    font-weight: bold;
+    background: linear-gradient(93.51deg, rgb(124, 71, 235) 10.94%, rgb(233, 53, 161) 86.95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+
+}
+.replyDiv > form > button{
+    border: 1px solid purple;
+    width: max-content;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: large;
+    font-weight: bold;
+    background: linear-gradient(93.51deg, rgb(124, 71, 235) 10.94%, rgb(233, 53, 161) 86.95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    
+}
+.commForm > button:hover{
+    box-shadow: 0 5px 15px rgba(130, 39, 122, 0.4);
+
+}
+.replyDiv > form > button:hover{
+    box-shadow: 0 5px 15px rgba(130, 39, 122, 0.4);
+
+}
+
+@media screen and (max-width : 500px) {
+    .commentAndReplyDiv input{
+        width:90%;
+    }
+    
+    .commForm input{
+        width: 90%;
+    }
+}
+
+.commentAndReplyDiv input{
+    border: none;
+    border-bottom: 1px solid purple;
+    padding: 5px;
+    color: purple;
+    font-size: large;
+
+}
+
+.commForm input{
+    border: none;
+    border-bottom: 1px solid purple;
+    padding: 5px;
+    color: purple;
+    font-size: large;
+}
+
+.commForm input:focus{
+    outline: none;
+}
+
+.commentAndReplyDiv input:focus{
+    outline: none;   
+}
+
+.cUserC{
+    display: inline;
+    font-weight: 300;
+    font-size: larger;
+}
+
+.replyOfCommentDiv{
+    padding-left: 2rem;
+}
+
+.cUserR{
+    display: inline;
+    font-weight: lighter;
+    font-size: larger;
+}
+
+.right{
+    text-align: justify;
+    text-decoration: none;
+}
+
+.right a{
+    text-decoration: none;
+}
+
+.detailedVocab{
+    min-height: 50vh;
+    border: 3px dashed purple;
+    padding: 3%;
+    margin-bottom: 10px;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media screen and (max-width : 500px) {
+    .detailedVocab audio{
+        width: 90%;
+    }
+}
+
+.rLd{
+    padding-left: 5%;
+    font-size: larger;
+}
+
+.lD{
+    font-weight: bold;
+    font-size: large;
+}
+
+.wrBlog{
+    border: 3px dashed purple;
+    padding: 2% 3% 2% 3%;
+    margin-bottom: 10px;
+    text-align: justify;
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+}
+
+.wTdiv{
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.wrBlog input{
+    border: none;
+    border-bottom: 1px solid purple;
+    padding: 5px;
+    color: purple;
+    font-size: large;
+    margin-bottom: 1%;
+}
+
+.wrBlog input:focus{
+    outline: none;
+}
+
+.wrBlog button{
+    border: 1px solid purple;
+    width: max-content;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: large;
+    font-weight: bold;
+    background: linear-gradient(93.51deg, rgb(124, 71, 235) 10.94%, rgb(233, 53, 161) 86.95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}
+
+.wrBlog button:hover{
+    box-shadow: 0 5px 15px rgba(130, 39, 122, 0.4);
+}
+
+.wrBlog textarea{
+    border: none;
+    border-bottom: 1px solid purple;
+    border-top: 1px solid purple;
+    padding: 5px;
+    color: purple;
+    font-size: large;
+    margin-bottom: 1%;
+}
+
+.wrBlog textarea:focus{
+    outline: none;
+}
+
+.wrBlog select{
+    border: none;
+    /* border-bottom: 1px solid purple; */
+    padding: 5px;
+    color: purple;
+    font-size: large;
+    margin-bottom: 1%;
+    text-align: justify;
+}
+
+.wrBlog select:focus{
+    outline: none;
+}
+
+.wBlog{
+    border-bottom: 1px dashed purple;
+    margin-bottom: 3%;
+    padding-bottom: 3% ;
+}
+
+@media screen and (max-width : 500px) {
+    .wrBlog{
+        overflow: scroll;
+    }
+
+}
+
+.instructionWrBlog{
+    text-align: justify;
+    font-size: large;
+}
+
+.dbContent img{
+    margin: 1%;
+    width: 98%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    mix-blend-mode: color-burn;
+}

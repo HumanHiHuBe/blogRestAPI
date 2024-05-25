@@ -1,0 +1,102 @@
+{% extends 'blogapp/base.html' %}
+{% load static %}
+{% block title %} BlogForVocab {% endblock %}
+
+{% block content %}
+<div id="dBlogWr">
+    <div class="left">
+        <div class="tDiv">{{ article.title }}</div>
+        <div class="iDiv">
+            <strong>Contributed By - {{ article.contributor|capfirst }}</strong> <br>
+            {{ article.time_created }} <br>
+        </div>
+        <div class="dbContent">
+            {{ article.content|safe }} <br>
+        </div>
+        {% if user.is_authenticated %}
+        <p style="color: purple; display: inline;">Liked by: {{ article.likes }}</p> <br>
+        {% if user.is_authenticated %}
+        <form action="{% url 'likescount' %}" method="POST" id="formLike">
+            {% csrf_token %}
+            <input type="text" name="article_id" value="{{ article.id }}" hidden>
+            <button type="submit">Click to Like</button>
+        </form>
+        {% endif %}
+        <div id="likedUserDiv">
+            Liked by users:
+            {% if likedUserList %}
+            {% for i in likedUserList %}
+            {{ i }}
+            {% endfor %}
+            {% else %}
+            <span style="font-weight: bold;">You could be first one to like it </span>
+            {% endif %}
+        </div>
+        <br>
+        <div style="flex: 1,1,auto; border-bottom: 2px dashed purple;"></div>
+        
+        <div class="commentAndReplyDiv">
+            <div class="cDiv">Comments & Replies</div>
+            <form action="{% url 'comment' %}" method="post" class="commForm">
+                {% csrf_token %}
+                {{ com_form }}
+                <input type="text" name="com_article" id="" value="{{ article.id }}" hidden>
+                <button type="submit">Comment</button>
+            </form>
+
+            <br>
+            {% if newVar %}
+            <span style="font-weight: bold;"> Comments from other users: </span><br>
+            {% endif %}
+            {% for i in final_list %}
+            <div class="indComm">
+                {% for j in i %}
+                {% if forloop.first %}
+                Commented by: <div class="cUserC"> {{ j.commented_user }} </div><br>
+                Comment: <div class="cUserC"> {{ j.comment_text }} </div><br>
+                <div class="replyDiv">
+                    <form action="{% url 'reply' %}" method="post" class="commForm">
+                        {% csrf_token %}
+                        {{ rep_form }}
+                        <input type="text" name="com_article" id="" value="{{ article.id }}" hidden>
+                        <input type="text" name="orig_com" id="" value="{{ j.id }}" hidden>
+                        <button type="submit">Reply</button>
+                    </form>
+                </div>
+                {% endif %}
+                {% if forloop.last %}
+                <div class="replyOfCommentDiv">
+                    {% for k in j %}
+                    <blockquote>
+                        {% if forloop.first %}
+                        <span style="font-size:1rem ; font-weight:bold ;">Replies to above comment: </span><br>
+                        {% endif %}
+                        Replied by: <div class="cUserR"> {{ k.replying_user }} </div><br>
+                        Reply: <div class="cUserR"> {{ k.reply_text }} </div><br>
+                    </blockquote>
+                    {% endfor %}
+                </div>
+                    {% endif %}
+                {% endfor %}
+                {% if not forloop.last %}
+                    <span style="color: purple;">-------------------------</span>
+                {% endif %}
+            </div>
+            {% endfor %}
+            
+        </div>
+            {% endif %}   
+    </div>
+
+    <div class="right">
+        <div class="tDiv">Vocab For The Article </div> <br>
+        <span>Meaning of the words shown here <span>(if any)</span> are provided by <strong>author</strong> of the Blog.
+            <br> <strong>BlogForVocab</strong> does <strong>Not</strong> take any responsibities of these meanings. <br> <br> <br>
+            Click on the word link for more information about the word. <br> </span> <br>
+        {{ msg }}
+        {% for i in words %}
+        <span>&#x2022; </span><a href="{% url 'individualvocab' i.word %}">{{ i.word }}</a> - {{ i.meaning }}<br><br>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

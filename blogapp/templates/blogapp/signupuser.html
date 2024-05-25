@@ -1,0 +1,21 @@
+{% extends 'blogapp/base.html' %}
+{% load static %}
+{% block title %} BlogForVocab {% endblock %}
+{% block signup %} <a role="link" aria-disabled="true"> Signup </a> {% endblock %}
+
+{% block content %}
+
+<div id="formDiv">
+    <div id="formInnerDiv">
+        <div id="lastDivInp">
+            <form action="{% url 'signupuser' %}" id="formLogin" method="post">
+                {% csrf_token %}
+                {{ error }}
+                {{ form.as_p }}
+                <button type="submit">SignUp</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
