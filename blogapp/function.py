@@ -1,4 +1,3 @@
-from . import enc
 import os
 import google.generativeai as genai
 import markdown
