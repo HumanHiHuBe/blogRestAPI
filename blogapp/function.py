@@ -1,6 +1,7 @@
 import os
 import google.generativeai as genai
 import markdown
+from . import apikey
 
 def function_to_render_correct_word_meaning(s):
     import re
@@ -29,8 +30,7 @@ def function_to_render_correct_word_meaning(s):
     return [d,word]
 
 def word_dictionary(word):
-    GOOGLE_API_KEY=os.getenv('GOOGLE_API_KEY')
-    genai.configure(api_key=GOOGLE_API_KEY)
+    genai.configure(api_key=apikey.GOOGLE_API_KEY)
     model = genai.GenerativeModel('gemini-pro')
     prompt = "What is the meaning of " + word + ", explain with some examples in a sentence."
     response = model.generate_content(prompt)

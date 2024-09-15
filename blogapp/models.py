@@ -20,7 +20,7 @@ class Article(models.Model):
     time_modified = models.DateTimeField(auto_now = True)
     time_created = models.DateTimeField(auto_now_add = True)
     approved = models.BooleanField(default= False)
-    contributor = models.ForeignKey(User, on_delete = models.CASCADE, default=User.objects.get(username = 'vatsa').pk)
+    contributor = models.ForeignKey(User, on_delete = models.CASCADE)
     likes = models.IntegerField(default=0)
     liked_user = models.ManyToManyField(User, related_name= 'user')
     
